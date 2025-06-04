@@ -14,21 +14,6 @@ class TOONTANKS_API ABasePawn : public APawn
 public:
 	ABasePawn();
 
-	UPROPERTY(VisibleInstanceOnly)
-	int32 VisibleInstanceOnlyInt = 11;
-
-	UPROPERTY(VisibleDefaultsOnly)
-	int32 VisibleDefaultsOnlyInt = 5;
-
-	UPROPERTY(EditDefaultsOnly)
-	int32 EditDefaultsOnlyInt = 19;
-
-	UPROPERTY(EditInstanceOnly)
-	int32 EditInstanceOnlyInt = 14;
-
-	UPROPERTY(VisibleInstanceOnly, BlueprintReadonly)
-	float CurrentMana = 0;
-
 protected:
 	virtual void BeginPlay() override;
 
@@ -47,10 +32,4 @@ private:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	USceneComponent* ProjectileSpawnPoint;
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "My Variables", meta = (AllowPrivateAccess = "true"))
-	int32 VisibleAnywhereInt = 32;
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "My Variables", meta = (AllowPrivateAccess = "true"))
-	int32 EditAnywhereInt = 22;
 };
