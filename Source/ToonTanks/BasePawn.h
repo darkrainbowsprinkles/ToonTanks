@@ -15,12 +15,8 @@ public:
 	ABasePawn();
 
 protected:
-	virtual void BeginPlay() override;
+	void RotateTurret(FVector LookAtTarget);
 
-public:	
-	virtual void Tick(float DeltaTime) override;
-
-private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	class UCapsuleComponent* CapsuleComponent;
 
@@ -32,4 +28,8 @@ private:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	USceneComponent* ProjectileSpawnPoint;
+
+private:
+	UPROPERTY(EditAnywhere, Category = "Movement")
+	float TurretRotationSpeed = 25.f;
 };
