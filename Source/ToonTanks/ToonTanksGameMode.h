@@ -13,4 +13,14 @@ class TOONTANKS_API AToonTanksGameMode : public AGameModeBase
 
 public:
 	void ActorDied(AActor* DeadActor);
+
+protected:
+	virtual void BeginPlay() override;
+
+private:
+	class AToonTanksPlayerController* PlayerController;
+
+	float StartDelay = 3.f;
+
+	void HandleGameStart();
 };
