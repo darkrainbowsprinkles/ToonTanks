@@ -17,10 +17,18 @@ public:
 protected:
 	virtual void BeginPlay() override;
 
+	UFUNCTION(BlueprintImplementableEvent)
+	void StartGame();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void GameOver(bool bWonGame);
+
 private:
 	class AToonTanksPlayerController* PlayerController;
 
 	float StartDelay = 3.f;
+	int32 TargetTowers = 0;
 
 	void HandleGameStart();
+	int32 GetTargetTowerCount();
 };
