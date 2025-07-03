@@ -20,6 +20,8 @@ protected:
 public:	
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
+	bool IsDead() const;
+
 private:
 	UPROPERTY(EditAnywhere)
 	float MaxHealth = 100.f;

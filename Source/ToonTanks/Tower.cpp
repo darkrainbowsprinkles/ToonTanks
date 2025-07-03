@@ -4,6 +4,7 @@
 #include "Tank.h"
 #include "Kismet/GameplayStatics.h"
 #include "TimerManager.h"
+#include "HealthComponent.h"
 
 void ATower::BeginPlay() 
 {
@@ -33,7 +34,14 @@ void ATower::HandleDestruction()
 
 void ATower::CheckFireCondition()
 {
-    if (TankInFireRange())
+    if (!Tank)
+    {
+        return;
+    }
+
+    UHealthComponent* TankHealth = Tank->FindComponentByClass<UHealthComponent>();
+
+    if (TankInFireRange() && !TankHealth->IsDead())
     {
         Fire();
     }
